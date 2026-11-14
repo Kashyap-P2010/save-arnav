@@ -1,0 +1,46 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game_finished.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://drlxbn4hx5ouh" path="res://assets/images/endscreen.webp" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://b58ud30jx304l" path="res://assets/images/play_again_btn_normal.png" id="3_btn_normal"]
+[ext_resource type="Texture2D" uid="uid://naoq6fkgvjyp" path="res://assets/images/play_again_btn_hover.png" id="4_btn_hover"]
+[ext_resource type="Texture2D" uid="uid://b0dmttroeov7a" path="res://assets/images/play_again_btn_pressed.png" id="5_btn_pressed"]
+
+[node name="GameFinished" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PlayAgainButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -160.0
+offset_right = 326.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+texture_normal = ExtResource("3_btn_normal")
+texture_pressed = ExtResource("5_btn_pressed")
+texture_hover = ExtResource("4_btn_hover")
+texture_focused = ExtResource("4_btn_hover")

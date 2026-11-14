@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dvxst4h5o8ytb"]
+
+[ext_resource type="Script" uid="uid://cgj2o7bupfcgu" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://mrbwys7ucpu" path="res://scenes/player.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://yyhabg4bijv" path="res://scenes/Level1.tscn" id="3_tbgi4"]
+
+[node name="Main" type="Node2D" unique_id=2052352982]
+script = ExtResource("1_jyhfs")
+metadata/_tc_uuid = "9031351066213811678"
+
+[node name="LevelRoot" parent="." unique_id=224099540 instance=ExtResource("3_tbgi4")]
+position = Vector2(50, 22)
+metadata/_tc_uuid = "2127489976995640383"
+
+[node name="Player" parent="." unique_id=707328791 instance=ExtResource("1_sugp2")]
+position = Vector2(595, 606)
+scale = Vector2(1, 1)

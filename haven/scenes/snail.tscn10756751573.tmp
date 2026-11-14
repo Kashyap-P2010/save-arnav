@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cn5v6g4v6edmq"]
+
+[ext_resource type="Texture2D" uid="uid://c7r7uqgl20c5p" path="res://assets/images/snail/BlahajRun.png" id="1_6lcqf"]
+[ext_resource type="Script" uid="uid://dkq7ui4ncfdl8" path="res://scripts/snail.gd" id="1_oqbjf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt1gp"]
+atlas = ExtResource("1_6lcqf")
+region = Rect2(0, 0, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y43gy"]
+atlas = ExtResource("1_6lcqf")
+region = Rect2(1024, 0, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x386r"]
+atlas = ExtResource("1_6lcqf")
+region = Rect2(0, 512, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seyw7"]
+atlas = ExtResource("1_6lcqf")
+region = Rect2(1024, 512, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0yb0"]
+atlas = ExtResource("1_6lcqf")
+region = Rect2(0, 1024, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnwd6"]
+atlas = ExtResource("1_6lcqf")
+region = Rect2(1024, 1024, 1024, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h00md"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt1gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y43gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x386r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seyw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0yb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnwd6")
+}],
+"loop": 1,
+"name": &"running",
+"speed": 16.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oqel"]
+size = Vector2(969, 436)
+
+[node name="Snail" type="Area2D" unique_id=159798835]
+scale = Vector2(-1, 1)
+script = ExtResource("1_oqbjf")
+metadata/_tc_uuid = "3395933433484314258"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1601306474]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h00md")
+animation = &"running"
+autoplay = "running"
+frame = 2
+frame_progress = 0.5825211
+metadata/_tc_uuid = "6475114089438165471"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754142618]
+position = Vector2(-0.5, -23)
+shape = SubResource("RectangleShape2D_5oqel")
+metadata/_tc_uuid = "7948799072383700404"
+
+[node name="Timer" type="Timer" parent="." unique_id=1222713307]
+wait_time = 2.0
+autostart = true
+metadata/_tc_uuid = "1055408685129307642"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
